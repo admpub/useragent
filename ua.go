@@ -51,6 +51,15 @@ const (
 	Googlebot           = "Googlebot"
 	Twitterbot          = "Twitterbot"
 	FacebookExternalHit = "facebookexternalhit"
+	Bingbot             = "bingbot"
+	Baidubot            = "Baiduspider"
+	Sobot               = "360Spider"
+	Yahoobot            = "Yahoo! Slurp"
+	Sososbot            = "Sosospider"
+	IAskbot             = "iaskspider" //Sina iask
+	Sogoubot            = "Sogou web spider"
+	Yodaobot            = "YodaoBot"
+	MSNbot              = "msnbot"
 )
 
 // Parse user agent string returning UserAgent struct
@@ -186,8 +195,9 @@ func Parse(userAgent string) UserAgent {
 		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
 
 	case tokens["bingbot"] != "":
-		ua.Name = "Bingbot"
+		ua.Name = Bingbot
 		ua.Version = tokens["bingbot"]
+		ua.Bot = true
 		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
 
 	case tokens["SamsungBrowser"] != "":
@@ -248,7 +258,7 @@ func Parse(userAgent string) UserAgent {
 
 	if !ua.Bot {
 		switch ua.Name {
-		case Twitterbot, FacebookExternalHit:
+		case Twitterbot, FacebookExternalHit, Bingbot, Baidubot, Sobot, Yahoobot, Sososbot, IAskbot, Sogoubot, Yodaobot, MSNbot:
 			ua.Bot = true
 		}
 	}
