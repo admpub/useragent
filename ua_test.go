@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	ua "github.com/mileusna/useragent"
+	ua "github.com/admpub/useragent"
 )
 
 func TestParse(t *testing.T) {
