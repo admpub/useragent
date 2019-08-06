@@ -60,9 +60,14 @@ func TestParse(t *testing.T) {
 		{"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)", ua.Googlebot, "2.1", "bot", ""},
 		{"Twitterbot/1.0", ua.Twitterbot, "1.0", "bot", ""},
 		{"facebookexternalhit/1.1", ua.FacebookExternalHit, "1.1", "bot", ""},
+		{"Mozilla/5.0 (compatible; SemrushBot/3~bl; +http://www.semrush.com/bot.html)", ua.SemrushBot, "3~bl", "bot", ""},
 
 		// other
 		{"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google (+https://developers.google.com/+/web/snippet/)", ua.Chrome, "56.0.2924.87", "bot", ua.Linux}, // Google+ fetch
+
+		{"mozilla/5.0 (Linux; u; Android 4.1.2; zh-cn; mi-one plus Build/jzo54k) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/5.0.1.352", ua.MicroMessenger, "5.0.1.352", "", "Android"},
+		{"Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 wxwork/2.4.2 MicroMessenger/6.3.22 Language/zh", ua.WxWork, "2.4.2", "", "iOS"},
+		{"Mozilla/5.0 (Linux; U; Android 5.0.2; zh-cn; Redmi Note 3 Build/LRX22G) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/1.0.0.100 U3/0.8.0 Mobile Safari/534.30 Nebula AlipayDefined(nt:WIFI,ws:360|640|3.0) AliApp(AP/10.0.1.123166) AlipayClient/10.0.1.123166 Language/zh-Hans useStatusBar/true", ua.AlipayClient, "10.0.1.123166", "", "Android"},
 
 		// tools
 		{"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.6.0 Chrome/45.0.2454.101 Safari/537.36", "QtWebEngine", "5.6.0", "", "macOS"},
