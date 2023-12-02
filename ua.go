@@ -179,21 +179,6 @@ func Parse(userAgent string) UserAgent {
 		ua.Bot = true
 		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
 
-	case tokens.exists(AlipayClient):
-		ua.Name = AlipayClient
-		ua.Version = tokens.get(AlipayClient)
-		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
-
-	case tokens.exists(WxWork):
-		ua.Name = WxWork
-		ua.Version = tokens.get(WxWork)
-		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
-
-	case tokens.exists(MicroMessenger):
-		ua.Name = MicroMessenger
-		ua.Version = tokens.get(MicroMessenger)
-		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
-
 	case tokens.existsAny("GoogleProber", "GoogleProducer"):
 		if name := tokens.findBestMatch(false); name != "" {
 			ua.Name = name
@@ -381,6 +366,22 @@ func Parse(userAgent string) UserAgent {
 		} else {
 			ua.Version = tokens.get("Safari")
 		}
+		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
+
+	// Added by Hank
+	case tokens.exists(AlipayClient):
+		ua.Name = AlipayClient
+		ua.Version = tokens.get(AlipayClient)
+		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
+
+	case tokens.exists(WxWork):
+		ua.Name = WxWork
+		ua.Version = tokens.get(WxWork)
+		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
+
+	case tokens.exists(MicroMessenger):
+		ua.Name = MicroMessenger
+		ua.Version = tokens.get(MicroMessenger)
 		ua.Mobile = tokens.existsAny("Mobile", "Mobile Safari")
 
 	default:
