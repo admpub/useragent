@@ -54,7 +54,6 @@ const (
 	Googlebot           = "Googlebot"
 	Twitterbot          = "Twitterbot"
 	FacebookExternalHit = "facebookexternalhit"
-	Bingbot             = "bingbot"
 	Baidubot            = "Baiduspider"
 	Sobot               = "360Spider"
 	Yahoobot            = "Yahoo! Slurp"
